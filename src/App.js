@@ -1,17 +1,18 @@
 import "normalize.css/normalize.css"
-import logo from './logo.svg';
 import './App.css';
-import First, { Second } from "./components/First";
+import Course from "./components/Course";
+import Conditional from "./components/Conditional";
 
 function App() {
-  var courseName = "React course";
 
   return (
     <div className="App">
-      {courseName}
-      <First />
-      <Second />
-      {/* <img src={logo} alt="logo" /> */}
+      <Course courseName="HTML" description="Hyper">I am a child of course</Course>
+      <Course courseName="CSS" description="Cascading" />
+      <Course courseName="JS" description="Programming" />
+      <Course courseName="React" description="SPA" />
+      <hr />
+      <Conditional />
     </div>
   );
 }
