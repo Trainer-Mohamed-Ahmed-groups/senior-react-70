@@ -1,18 +1,25 @@
 import "normalize.css/normalize.css"
-import './App.css';
-import Course from "./components/Course";
-import Conditional from "./components/Conditional";
+import './App.scss';
+import Button from 'react-bootstrap/Button';
+import Home from "./views/Home";
+import SiteNav from "./layout/SiteNav";
+import { Col, Container, Row } from "react-bootstrap";
+import { Route, Routes } from "react-router-dom";
+import About from "./views/About";
+import Contact from "./views/Contact";
+import Error from "./views/Error";
 
 function App() {
 
   return (
     <div className="App">
-      <Course courseName="HTML" description="Hyper">I am a child of course</Course>
-      <Course courseName="CSS" description="Cascading" />
-      <Course courseName="JS" description="Programming" />
-      <Course courseName="React" description="SPA" />
-      <hr />
-      <Conditional />
+      <SiteNav />
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/about" element={<About />}/>
+        <Route path="/contact" element={<Contact />}/>
+        <Route path="/*" element={<Error />}/>
+      </Routes>
     </div>
   );
 }
