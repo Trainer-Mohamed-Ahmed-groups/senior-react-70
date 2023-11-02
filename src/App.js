@@ -1,27 +1,26 @@
 import "normalize.css/normalize.css"
 import './App.scss';
-import Button from 'react-bootstrap/Button';
-import Home from "./views/Home";
-import SiteNav from "./layout/SiteNav";
-import { Col, Container, Row } from "react-bootstrap";
-import { Route, Routes } from "react-router-dom";
-import About from "./views/About";
-import Contact from "./views/Contact";
-import Error from "./views/Error";
+import { useContext } from "react";
+import HomePage from "./views/HomePage";
+import { ThemeContext } from "./context/ThemeContext";
+import Memo from "./views/Memo";
+import Reducer from "./views/Reducer";
+import CallBack from "./views/CallBack";
 
 function App() {
 
+  const theme = useContext(ThemeContext)
+
+  console.log(theme)
   return (
-    <div className="App">
-      <SiteNav />
-      <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/about" element={<About />}/>
-        <Route path="/contact" element={<Contact />}/>
-        <Route path="/*" element={<Error />}/>
-      </Routes>
+    <div className={theme.theme === "light" ? "light" : "dark"}>
+      {/* <HomePage /> */}
+      {/* <Memo /> */}
+      {/* <Reducer /> */}
+      <CallBack />
     </div>
   );
 }
 
 export default App;
+
